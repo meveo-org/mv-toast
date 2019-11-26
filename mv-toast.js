@@ -114,6 +114,11 @@ export class MvToast extends LitElement {
         font-size: 14px;
         width: 100%;
         max-width: 480px;
+        padding-bottom: 10px;
+      }
+
+      .message ::slotted(*) {
+        max-width: 400px;        
       }
 
       .message.scrollbar {
