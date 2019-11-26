@@ -81,7 +81,7 @@ export class MvToast extends LitElement {
 
       .toast-content {
         padding-left: 20px;
-        width: 100%;
+        width: calc(100% - 20px);
       }
       
       .close-button-section {
