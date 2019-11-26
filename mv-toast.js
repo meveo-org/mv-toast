@@ -81,11 +81,11 @@ export class MvToast extends LitElement {
 
       .toast-content {
         padding-left: 20px;
-        width: calc(100% - 110px);
+        min-width: 400px;
+        max-width: 480px;
       }
       
       .close-button-section {
-        width: 100%;
         min-height: 14px;
         text-align: right;
         line-height: 14px;
@@ -112,13 +112,11 @@ export class MvToast extends LitElement {
 
       .message {
         font-size: 14px;
-        width: 100%;
-        max-width: 480px;
-        padding-bottom: 10px;
+        max-width: 100%;
       }
 
       .message ::slotted(*) {
-        max-width: 400px;        
+        margin: 10px 0 0 0;        
       }
 
       .message.scrollbar {
