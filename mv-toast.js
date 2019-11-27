@@ -116,7 +116,7 @@ export class MvToast extends LitElement {
       }
 
       .message ::slotted(*) {
-        margin: 10px 0 0 0;        
+        margin: 10px 0;        
       }
 
       .message.scrollbar {
