@@ -3,6 +3,7 @@ import { LitElement, html, css } from "lit-element";
 export class MvToast extends LitElement {
   static get properties() {
     return {
+      // type values are: "success", "information", "error", default: "success"
       type: { type: String, attribute: true },
       duration: { type: Number, attribute: true },
       closeable: { type: Boolean, attribute: true },
@@ -110,16 +111,16 @@ export class MvToast extends LitElement {
         font-weight: bold;
       }
 
-      .message {
+      .message-container {
         font-size: 14px;
         max-width: 100%;
       }
 
-      .message ::slotted(*) {
+      .message {
         margin: 10px 0;        
       }
 
-      .message.scrollbar {
+      .message-container.scrollbar {
         max-height: 150px;
         float: left;
         overflow: auto;
@@ -128,44 +129,44 @@ export class MvToast extends LitElement {
         scrollbar-width: thin;
       }
 
-      .message.scrollbar:focus {
+      .message-container.scrollbar:focus {
         outline: transparent auto 0;
       }
     
-      .message.scrollbar::-webkit-scrollbar-track {
+      .message-container.scrollbar::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
         background-color: #788394;
       }
     
-      .message.scrollbar::-webkit-scrollbar {
+      .message-container.scrollbar::-webkit-scrollbar {
         width: 8px;
         height: 8px;
         background-color: #788394;
         border-radius: 10px;
       }
     
-      .message.scrollbar::-webkit-scrollbar-thumb {
+      .message-container.scrollbar::-webkit-scrollbar-thumb {
         border-radius: 10px;
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         background-color: #5A6473;
       }
 
-      .message.scrollbar.light {
+      .message-container.scrollbar.light {
         // fallback for firefox
         scrollbar-color: #1D9BC9 #EAEBF0 !important;
       }
 
-      .message.scrollbar.light::-webkit-scrollbar-track {
+      .message-container.scrollbar.light::-webkit-scrollbar-track {
         box-shadow: inset 0 0 5px 0 rgba(29, 155, 201, 0.3);
         background-color: #EAEBF0 !important;
       }
   
-      .message.scrollbar.light::-webkit-scrollbar {
+      .message-container.scrollbar.light::-webkit-scrollbar {
         background-color: #1D9BC9;
       }
   
-      .message.scrollbar.light::-webkit-scrollbar-thumb {
+      .message-container.scrollbar.light::-webkit-scrollbar-thumb {
         box-shadow: inset 0 0 5px 0 rgba(29, 155, 201, 0.3);
         background-color: #008FC3;
       }
@@ -280,8 +281,10 @@ export class MvToast extends LitElement {
                   : html``}
               </div>
               <div class="type ${type}">${this.type}</div>
-              <div class="message scrollbar light">
-                <slot> </slot>
+              <div class="message-container scrollbar light">
+                  <div class="message">
+                    <slot> </slot>
+                  </div>
               </div>
             </div>      
           </div>
