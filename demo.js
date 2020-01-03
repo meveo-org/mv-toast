@@ -17,7 +17,7 @@ export class MvToastDemo extends LitElement {
 
       section {
         display: grid;
-        grid-template-columns: auto 1fr 1fr auto;
+        grid-template-columns: auto 1fr 1fr 1fr auto;
       }
   
       mv-toast {
@@ -29,6 +29,18 @@ export class MvToastDemo extends LitElement {
   render() {
     return html`
     <section>
+      <mv-toast type="success" .closeable="${false}">
+        <ul>
+          <li>type: <b>success</b></li>
+          <li>closeable: <b>false</b></li>
+        </ul>
+        Nunc a nisl eget dolor consequat bibendum non id odio. Suspendisse laoreet hendrerit dignissim. Etiam condimentum
+        vestibulum neque sit amet tristique. Sed sit amet convallis tortor, sed lacinia mi. Vivamus malesuada semper ante,
+        non commodo quam auctor id. Duis vel neque ultricies, volutpat justo ac, posuere mauris. In fermentum sem vitae
+        augue pellentesque porta in in erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus. Fusce id dolor accumsan, feugiat tellus eget, placerat tortor. Donec ullamcorper nisi et dui
+        commodo
+      </mv-toast>
       <mv-toast type="information">
         <h3>Label</h3>
         <pre>{

@@ -182,7 +182,7 @@ export class MvToast extends LitElement {
 
       .toast-icon-section.success i * {
         font-size: 26px;
-        padding: 2px 0 0 4px;
+        padding: 0 0 0 4px;
       }
 
       .close-button-section.success button {
@@ -208,7 +208,7 @@ export class MvToast extends LitElement {
 
       .toast-icon-section.information i * {
         font-size: 26px;
-        padding: 1px 0 0 12px;
+        padding: 2px 0 0 12px;
       }
 
       .close-button-section.information button {
@@ -234,7 +234,7 @@ export class MvToast extends LitElement {
 
       .toast-icon-section.error i * {
         font-size: 36px;
-        padding: 0 0 0 6px;
+        padding: 3px 0 0 6px;
         margin-top: -6px;
       }
 
