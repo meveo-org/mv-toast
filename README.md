@@ -20,6 +20,9 @@ The `mv-toast` has 3 `type` variants:
 success, information, and error 
 ```
 
+
+You can also check this [demo](https://toast.meveo.org)
+
 The close button can be disabled by declaring
 ```html
 <mv-toast .closeable="${false}"></mv-toast>
