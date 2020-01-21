@@ -14,9 +14,10 @@ export class MvToast extends LitElement {
 
   static get styles() {
     return css`
-			:host {
-				font-family: var(--mv-font-family, Arial);
-				font-size: var(--mv-font-size-m, 10pt);				
+	  :host {
+		font-family: var(--mv-font-family, Arial);
+		font-size: var(--mv-font-size-m, 10pt);
+		--background-color: var(--mv-toast-background-color);				
       }
 
       @keyframes fade-in {
@@ -173,11 +174,11 @@ export class MvToast extends LitElement {
 
       /* SUCCESS */
       .mv-toast.success {
-        border: 1px solid #54CA95;
+        border: 1px solid var(--background-color, #54CA95);
       }
 
       .toast-icon-section.success {
-        background-color: #54CA95;        
+        background-color: var(--background-color, #54CA95);        
       }
 
       .toast-icon-section.success i * {
@@ -186,7 +187,7 @@ export class MvToast extends LitElement {
       }
 
       .close-button-section.success button {
-        color: #54CA95;
+        color: var(--background-color, #54CA95);
       }
 
       .close-button-section.success button:hover {
@@ -194,16 +195,16 @@ export class MvToast extends LitElement {
       }
 
       .type.success {
-        color: #54CA95;
+        color: var(--background-color, #54CA95);
       }
       
       /* INFORMATION */
       .mv-toast.information {
-        border: 1px solid #3999C1;
+        border: 1px solid var(--background-color, #3999C1);
       }
 
       .toast-icon-section.information {
-        background-color: #3999C1;
+        background-color: var(--background-color, #3999C1);
       }
 
       .toast-icon-section.information i * {
@@ -212,7 +213,7 @@ export class MvToast extends LitElement {
       }
 
       .close-button-section.information button {
-        color: #3999C1;
+        color: var(--background-color, #3999C1);
       }
 
       .close-button-section.information button:hover {
@@ -220,16 +221,16 @@ export class MvToast extends LitElement {
       }
 
       .type.information {
-        color: #3999C1;
+        color: var(--background-color, #3999C1);
       }
 
       /* ERROR */
       .mv-toast.error {
-        border: 1px solid #E52F2F;
+        border: 1px solid var(--background-color, #E52F2F);
       }
 
       .toast-icon-section.error {
-        background-color: #E52F2F;
+        background-color: var(--background-color, #E52F2F);
       }
 
       .toast-icon-section.error i * {
@@ -239,7 +240,7 @@ export class MvToast extends LitElement {
       }
 
       .close-button-section.error button {
-        color: #DD5C55;
+        color: var(--background-color, #DD5C55);
       }
 
       .close-button-section.error button:hover {
@@ -247,7 +248,7 @@ export class MvToast extends LitElement {
       }
 
       .type.error {
-        color: #E52F2F;
+        color: var(--background-color, #E52F2F);
       }
 		`;
   }
