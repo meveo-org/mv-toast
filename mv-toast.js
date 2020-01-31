@@ -8,16 +8,23 @@ export class MvToast extends LitElement {
       duration: { type: Number, attribute: true },
       closeable: { type: Boolean, attribute: true },
       visible: { type: Boolean, reflect: true, attribute: false },
-      show: { type: Boolean, reflect: true, attribute: false }
+      show: { type: Boolean, reflect: true, attribute: false },
+
+      //  valid theme values are: "light", "dark"
+      //    default: "light"
+      theme: { type: String, attribute: true }
     };
   }
 
   static get styles() {
     return css`
-	  :host {
-		font-family: var(--mv-font-family, Arial);
-		font-size: var(--mv-font-size-m, 10pt);
-		--background-color: var(--mv-toast-background-color);				
+	    :host {
+        font-family: var(--mv-font-family, Arial);
+        font-size: var(--mv-font-size-m, 10pt);
+        --light-background: var(--mv-toast-light-background);
+        --hover-light-color: var(--mv-toast-hover-light-color);
+        --dark-background: var(--mv-toast-dark-background, #4E686D);
+        --hover-dark-color: var(--mv-toast-hover-dark-color, #23404C);				
       }
 
       @keyframes fade-in {
@@ -191,7 +198,7 @@ export class MvToast extends LitElement {
       }
 
       .close-button-section.success button:hover {
-        color: #0CA361;
+        color: var(--hover-color, #0CA361);
       }
 
       .type.success {
@@ -217,7 +224,7 @@ export class MvToast extends LitElement {
       }
 
       .close-button-section.information button:hover {
-        color: #007FAD;
+        color: var(--hover-color, #007FAD);
       }
 
       .type.information {
@@ -244,11 +251,21 @@ export class MvToast extends LitElement {
       }
 
       .close-button-section.error button:hover {
-        color: #E71919;
+        color: var(--hover-color, #E71919);
       }
 
       .type.error {
         color: var(--background-color, #E52F2F);
+      }
+      
+      .light {
+        --background-color: var(--light-background);
+        --hover-color: var(--hover-light-color);
+      }
+      
+      .dark {
+        --background-color: var(--dark-background);
+        --hover-color: var(--hover-dark-color);
       }
 		`;
   }
@@ -260,6 +277,7 @@ export class MvToast extends LitElement {
     this.closeable = true;
     this.visible = true;
     this.show = true;
+    this.theme = "light";
 
     this.icons = {
       success: html`<i class="toast-icon">&check;</i>`,
@@ -273,7 +291,7 @@ export class MvToast extends LitElement {
     const showClass = show ? "show" : "hide";
     return visible
       ? html`
-          <div class="mv-toast ${showClass} ${type}">
+          <div class="mv-toast ${showClass} ${type} ${this.theme}">
             <div class="toast-icon-section ${type}"><i>${icons[type]}</i></div>
             <div class="toast-content">
               <div class="close-button-section ${type}">
