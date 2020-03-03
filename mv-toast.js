@@ -18,7 +18,7 @@ export class MvToast extends LitElement {
 
   static get styles() {
     return css`
-	    :host {
+      :host {
         font-family: var(--mv-font-family, Arial);
         font-size: var(--mv-font-size-m, 10pt);
         --light-background: var(--mv-toast-light-background);
@@ -26,7 +26,7 @@ export class MvToast extends LitElement {
         --dark-background: var(--mv-toast-dark-background, #4E686D);
         --hover-dark-color: var(--mv-toast-hover-dark-color, #23404C);				
       }
-
+      
       @keyframes fade-in {
         0% {
           left: 0;
@@ -267,7 +267,7 @@ export class MvToast extends LitElement {
         --background-color: var(--dark-background);
         --hover-color: var(--hover-dark-color);
       }
-		`;
+    `;
   }
 
   constructor() {

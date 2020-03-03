@@ -1,12 +1,10 @@
 import { LitElement, html, css } from "lit-element";
-import "mv-font-awesome";
 import "./mv-toast.js";
 
 export class MvToastDemo extends LitElement {
   static get properties() {
     return {
       value: { type: String, attribute: true },
-      open: { type: Boolean, attribute: true },
       theme: { type: String, attribute: true }
     };
   }
@@ -27,30 +25,40 @@ export class MvToastDemo extends LitElement {
         margin: 0 5px;
       }
       
-      mv-fa[icon="lightbulb"] {
-        font-size: 50px;
+      fieldset > label, label > input {
         cursor: pointer;
-        margin: 20px;
       }
       
-      .theme {
-        display: flex;
-        justify-content: flex-start;
+      fieldset {
+        width: 120px;
+        margin-left: 10px;
+        border:2px solid red;
+        -moz-border-radius:8px;
+        -webkit-border-radius:8px;	
+        border-radius:8px;
+        color: #818181;
+        margin-bottom: 20px;
+      }
+      
+      legend {
+        font-weight: 500;
+        color: red;
       }
     `;
   }
 
   constructor() {
     super();
-    this.open = true;
     this.theme = "light";
   }
 
   render() {
     return html`
-    <div class="theme">
-      <mv-fa icon="lightbulb" style="color: ${this.open ? "yellow" : ""}" @click=${this.toggleLightBulb}></mv-fa>
-    </div>
+    <fieldset>
+      <legend>Theme</legend>
+      <label><input type="radio" name="theme" value="light" checked @change="${this.radioChange}" />Light</label>
+      <label><input type="radio" name="theme" value="dark" @change="${this.radioChange}" />Dark</label>
+    </fieldset>
     <section>
       <mv-toast type="success" .closeable="${false}" .theme="${this.theme}">
         <ul>
@@ -91,9 +99,9 @@ export class MvToastDemo extends LitElement {
     `;
   }
 
-  toggleLightBulb = () => {
-    this.open = !this.open;
-    if (this.open) {
+  radioChange = originalEvent => {
+    const { target: { value } } = originalEvent;
+    if (value === "light") {
       this.theme = "light";
     } else {
       this.theme = "dark";
