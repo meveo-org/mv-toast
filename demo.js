@@ -33,9 +33,9 @@ export class MvToastDemo extends LitElement {
         width: 120px;
         margin-left: 10px;
         border:2px solid red;
-        -moz-border-radius:8px;
-        -webkit-border-radius:8px;	
-        border-radius:8px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;	
+        border-radius: 8px;
         color: #818181;
         margin-bottom: 20px;
       }
@@ -56,8 +56,8 @@ export class MvToastDemo extends LitElement {
     return html`
     <fieldset>
       <legend>Theme</legend>
-      <label><input type="radio" name="theme" value="light" checked @change="${this.radioChange}" />Light</label>
-      <label><input type="radio" name="theme" value="dark" @change="${this.radioChange}" />Dark</label>
+      <label><input type="radio" name="theme" value="light" checked @change="${this.changeTheme}" />Light</label>
+      <label><input type="radio" name="theme" value="dark" @change="${this.changeTheme}" />Dark</label>
     </fieldset>
     <section>
       <mv-toast type="success" .closeable="${false}" .theme="${this.theme}">
@@ -99,13 +99,9 @@ export class MvToastDemo extends LitElement {
     `;
   }
 
-  radioChange = originalEvent => {
+  changeTheme = originalEvent => {
     const { target: { value } } = originalEvent;
-    if (value === "light") {
-      this.theme = "light";
-    } else {
-      this.theme = "dark";
-    }
+    this.theme = value;
   };
 }
 

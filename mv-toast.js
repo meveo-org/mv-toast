@@ -19,12 +19,13 @@ export class MvToast extends LitElement {
   static get styles() {
     return css`
       :host {
-        font-family: var(--mv-font-family, Arial);
-        font-size: var(--mv-font-size-m, 10pt);
+        font-family: var(--font-family, Arial);
+        font-size: var(--font-size-m, 10pt);
         --light-background: var(--mv-toast-light-background);
         --hover-light-color: var(--mv-toast-hover-light-color);
         --dark-background: var(--mv-toast-dark-background, #4E686D);
-        --hover-dark-color: var(--mv-toast-hover-dark-color, #23404C);				
+        --hover-dark-color: var(--mv-toast-hover-dark-color, #23404C);
+        --color: var(--mv-toast-color, #000000);				
       }
       
       @keyframes fade-in {
@@ -73,6 +74,7 @@ export class MvToast extends LitElement {
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: Arial;
       }
 
       .toast-icon-section i {
@@ -122,6 +124,7 @@ export class MvToast extends LitElement {
       .message-container {
         font-size: 14px;
         max-width: 100%;
+        color: var(--color);
       }
 
       .message {
