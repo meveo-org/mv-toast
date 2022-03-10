@@ -68,13 +68,13 @@ export class MvToast extends LitElement {
       }
 
       .toast-icon-section {
-        width: 77px;        
         border-radius: 5px 0 0 5px;
         box-shadow: 0 0 10px 0 rgba(7,17,26, 0.2);
         display: flex;
         align-items: center;
         justify-content: center;
         font-family: Arial;
+        padding: 1rem;
       }
 
       .toast-icon-section i {
